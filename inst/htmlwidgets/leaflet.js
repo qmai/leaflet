@@ -1836,9 +1836,9 @@ methods.addRectangles = function (lat1, lng1, lat2, lng2, layerId, group, option
  */
 
 
-methods.addPolygons = function (polygons, layerId, group, options, popup, popupOptions, label, labelOptions, highlightOptions) {
+methods.addPolygons = function (polygons, layerId, group, options, popup, popupOptions, label, labelOptions, highlightOptions, crosstalkOptions) {
   if (polygons.length > 0) {
-    var df = new _dataframe2["default"]().col("shapes", polygons).col("layerId", layerId).col("group", group).col("popup", popup).col("popupOptions", popupOptions).col("label", label).col("labelOptions", labelOptions).col("highlightOptions", highlightOptions).cbind(options);
+    var df = new _dataframe2.default().col("shapes", polygons).col("layerId", layerId).col("group", group).col("popup", popup).col("popupOptions", popupOptions).col("label", label).col("labelOptions", labelOptions).col("highlightOptions", highlightOptions).cbind(options).cbind(crosstalkOptions || {});
     addLayers(this, "shape", df, function (df, i) {
       // This code used to use L.multiPolygon, but that caused
       // double-click on a multipolygon to fail to zoom in on the
