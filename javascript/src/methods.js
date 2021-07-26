@@ -558,7 +558,7 @@ methods.addPolygons = function(polygons, layerId, group, options, popup, popupOp
       .col("label", label)
       .col("labelOptions", labelOptions)
       .col("highlightOptions", highlightOptions)
-      .cbind(options);
+      .cbind(options)
       .cbind(crosstalkOptions || {});
 
     addLayers(this, "shape", df, function(df, i) {
